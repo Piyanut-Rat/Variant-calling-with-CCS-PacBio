@@ -10,11 +10,13 @@
 #### 5) Accuratecy variant
 ----
 #### 1) Import data
-https://www.ncbi.nlm.nih.gov/sra/?term=SRX5327410
+
 Cite: https://github.com/rvalieris/parallel-fastq-dump
-
+```
 $ conda install parallel-fastq-dump
-
+```
+https://www.ncbi.nlm.nih.gov/sra/?term=SRX5327410
+https://github.com/Piyanut-Rat/Variant-calling-with-CCS-PacBio/blob/main/SraAccList_39runs_CCSPacBio.txt
 ```
 $ parallel-fastq-dump --sra-id {file name} –threads 16 –outdir ccs_input/ --gzip
 ```
