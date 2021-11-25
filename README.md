@@ -20,3 +20,4 @@ $ conda install parallel-fastq-dump
 ```
 $ parallel-fastq-dump --sra-id {file name} –threads 16 –outdir ccs_input/ --gzip
 ```
+[read more example for file import](https://raw.githubusercontent.com/Piyanut-Rat/Import-data-from-Humam-genome-database/main/README.md?token=ASQS4ZRP3ACBK5NQTCSK7LLBT65OC) 
