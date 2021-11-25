@@ -15,7 +15,6 @@ Cite: https://github.com/rvalieris/parallel-fastq-dump
 
 $ conda install parallel-fastq-dump
 
-SraAccList_39runs_CCSPacBio.txt
 ```
 $ parallel-fastq-dump --sra-id {file name} –threads 16 –outdir ccs_input/ --gzip
 ```
