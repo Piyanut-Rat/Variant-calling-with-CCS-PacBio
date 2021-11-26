@@ -37,7 +37,7 @@ $ parallel-fastq-dump --sra-id {file name} –threads 16 –outdir ccs_input/ --
 [read more example for file import](https://raw.githubusercontent.com/Piyanut-Rat/Import-data-from-Humam-genome-database/main/README.md?token=ASQS4ZRP3ACBK5NQTCSK7LLBT65OC) 
 
 1.2) Download reference genome
-  * 37
+  * GRCh37
 cite: [GRCh37](https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.25_GRCh37.p13/GRCh37_seqs_for_alignment_pipelines/)
 ```
 $ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.25_GRCh37.p13/GRCh37_seqs_for_alignment_pipelines/GCA_000001405.14_GRCh37.p13_no_alt_analysis_set.fna.gz \
@@ -56,7 +56,7 @@ Example
 ```
 $ samtools faidx GRCh37.fa 
 ```
-  * 38 
+  * GRCh38 
 cite: [GRCh38](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22)));right click [open link in the new tap](https://console.cloud.google.com/storage/browser/_details/genomics-public-data/resources/broad/hg38/v0/Homo_sapiens_assembly38.fasta;tab=live_object?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))) for go to link copy to wget. (You can study and
 [read more information about human genome reference](https://gatk.broadinstitute.org/hc/en-us/articles/360035890811-Resource-bundle) more.
 
@@ -66,7 +66,7 @@ $ wget https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/
 ```
 $ samtools faidx Homo_sapiens_assembly38.fasta
 ```
-1.3) Download Benchmark 
+1.3) Download Benchmark \
 1.3.1) Benchmark for small variant
 cite: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/
 ```
@@ -93,6 +93,8 @@ mkdir -p giab
 $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_HG002_medical_genes_SV_benchmark_v0.01/HG002_GRCh37_difficult_medical_gene_SV_benchmark_v0.01.bed
 $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_HG002_medical_genes_SV_benchmark_v0.01/HG002_GRCh37_difficult_medical_gene_SV_benchmark_v0.01.vcf.gz
 $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_HG002_medical_genes_SV_benchmark_v0.01/HG002_GRCh37_difficult_medical_gene_SV_benchmark_v0.01.vcf.gz.tbi
+```
+```
 # GRCh38
 $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_HG002_medical_genes_SV_benchmark_v0.01/HG002_GRCh38_difficult_medical_gene_SV_benchmark_v0.01.bed
 $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_HG002_medical_genes_SV_benchmark_v0.01/HG002_GRCh38_difficult_medical_gene_SV_benchmark_v0.01.vcf.gz
@@ -105,6 +107,8 @@ cite: https://github.com/PacificBiosciences/pbsv/tree/master/annotations
 ```
 # GRCh38
 $ wget https://github.com/PacificBiosciences/pbsv/blob/master/annotations/human_GRCh38_no_alt_analysis_set.trf.bed
+```
+```
 # GRCh37
 $ wget https://github.com/PacificBiosciences/pbsv/blob/master/annotations/human_hs37d5.trf.bed
 ```
@@ -144,7 +148,7 @@ $$ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-
 $ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
   ccs_map.fofn ccs_align_sorted_GRCh37.bam --preset CCS --rg '@RG\tID:myid\tSM:HG37' --num-threads 18 --sort
 ```
-* This is used for GRCh37 not flit ##
+* This is used for GRCh37 not flit 
 ```
 $ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
   ccs_map_notflit.fofn  ccs_notflit_align_sorted_GRCh37.bam --preset CCS --rg '@RG\tID:myid\tSM:HG37' --num-threads 18 --sort
@@ -239,66 +243,16 @@ $ hap.py truth.vcf query.vcf -f confident.bed -o output_prefix -r reference.fa
 ```
 ## GRCh38
 $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf \
-/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_HG38/HG002.final.vcf.gz \
--f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed \
--o output_prefix_hap_py_HG38 \
--r /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta
-
-$$ $hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf \
 /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_HG38/HG002.final.vcf.gz  \
       -o output-prefix_38 --force-interactive \
       -r /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta
 ```
 ```
 ## GRCh37
-$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
-/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
--f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
--o output_prefix_happy_GRCh37 \
--r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
-
-
-###
-$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
-/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.indels.vcf.gz \
--f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
--o output_prefix_hap_py_GRCh37_indels \
--r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
-
-$$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
-/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
--f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
--o output_prefix_hap_py_GRCh_37 \
--r /home_bif2/piyanut.ra/pj_622/data/ref/human_hs37d5.fasta
-
-$$ $hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
+$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
       -o output-prefix_37 --force-interactive \
       -r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
-      
-$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
-/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
--f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
--o output_prefix_hap_py_hg37 \
--r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
---threads 18
 ```
-
-
-
-
-``
-$ mkdir -p evaluation_files/difficult_regions/  evaluation_files/difficult_regions/homopolymers analysis
-
-# Create SDF (sequence data file) for reference genome required for RTG vcfeval 
-rtg RTG_MEM=4G format -f fasta /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta \
--o evaluation_files/GRCh38.sdf
-header="#score true_positives_baseline false_positives true_positives_call false_negatives precision sensitivity f_measure"
-
-
-
-
-
-
 
 5.2)  Structural variantion using truvari
 Installation: https://github.com/spiralgenetics/truvari
@@ -314,6 +268,8 @@ $ truvari bench -f /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38
  --includebed /home_bif2/piyanut.ra/pj_622/data/giab/HG002_GRCh38_difficult_medical_gene_SV_benchmark_v0.01.bed \
  -o /home_bif2/piyanut.ra/pj_622/data/refseq/sv2_bench_pbsv38nanoFlit --passonly \
  --giabreport -r 1000 -p 0.01 --multimatch -c /home_bif2/piyanut.ra/pj_622/data/pbmm2/HG38.pbsv.vcf.gz
+ ```
+ ```
  # GRCh37
  $ truvari bench -f /home_bif2/piyanut.ra/pj_622/data/ref/human_hs37d5.fasta \
  -b /home_bif2/piyanut.ra/pj_622/data/giab/HG002_GRCh37_difficult_medical_gene_SV_benchmark_v0.01.vcf.gz \
@@ -324,4 +280,11 @@ $ truvari bench -f /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38
 Read more: https://github.com/spiralgenetics/truvari/wiki/bench
 
 <img width="806" alt="image" src="https://user-images.githubusercontent.com/77672038/143612221-615d59fc-f390-42cc-80fc-2076e3eef78c.png">
+
+### References
+Wenger, A.M., Peluso, P., Rowell, W.J. et al. Accurate circular consensus long-read sequencing improves variant detection and assembly of a human genome. *Nat Biotechnol* **37**, 1155–1162 (2019). https://doi.org/10.1038/s41587-019-0217-9
+\
+\
+Ahsan, M.U., Liu, Q., Fang, L. et al. NanoCaller for accurate detection of SNPs and indels in difficult-to-map regions from long-read sequencing by haplotype-aware deep neural networks. *Genome Biol* **22**, 261 (2021). https://doi.org/10.1186/s13059-021-02472-2
+
 
