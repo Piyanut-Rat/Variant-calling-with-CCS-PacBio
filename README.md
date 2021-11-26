@@ -201,6 +201,20 @@ $ python NanoCaller/scripts/NanoCaller_WGS.py \
 --exclude_bed hg19 \
 -cpu 18
 ```
+```
+# GRCh37 not flit
+$ python NanoCaller/scripts/NanoCaller_WGS.py \
+-bam /home_bif2/piyanut.ra/pj_622/data/pbmm2/ccs_notflit_align_sorted_GRCh37.bam -ref /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
+-prefix HG002_HG37 \
+-p ccs \
+--sequencing pacbio \
+--snp_model CCS-HG002 \
+--indel_model CCS-HG002 \
+-nbr_t 0.3,0.7 \
+-o Nanocalls_hg_37_notflit \
+--exclude_bed hg19 \
+-cpu 18
+```
 
 4.2) Structural variantion using pbsv
 
