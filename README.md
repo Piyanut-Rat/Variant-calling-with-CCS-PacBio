@@ -1,12 +1,16 @@
 # Variant-calling-with-CCS-PacBio
+
+<img width="780" alt="image" src="https://user-images.githubusercontent.com/77672038/143611722-a3d9711b-0079-41b8-9f56-61ee61b93ea5.png">
+
 ----
 ### OUTLINE
 #### 1) Import data
-1.1) CCS (sample)
-1.2) Download reference genome
+1.1) CCS (sample)\
+1.2) Download reference genome\
 1.3) Download Benchmark
-  1.3.1) Benchmark for small variant
-  1.3.2) Benchmark for structural variant
+  * 1.3.1) Benchmark for small variant
+  * 1.3.2) Benchmark for structural variant
+ 
 1.4)  Tandem repeat annotations 
 #### 2) Filter data
 #### 3) Mapping
@@ -14,7 +18,7 @@
 4.1) Small variantion using NanoCaller \
 4.2) Structural variantion using pbsv
 #### 5) Accuratecy variant
-5.1)  Small variantion using hap.py
+5.1)  Small variantion using hap.py \
 5.2)  Structural variantion using truvari
 
 ----
@@ -131,6 +135,9 @@ done
 ```
 pbmm2 align /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta \
   ccs_map.fofn ccs_align_sorted_38.bam --preset CCS --rg '@RG\tID:myid\tSM:HG38' --num-threads 15 --sort
+  
+$$ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta \
+  ccs_map.fofn ccs_filt_align_sorted_GRCh38.bam --preset CCS --rg '@RG\tID:myid\tSM:HG38' --num-threads 18 --sort
 ```  
 * This is used for GRCh37
 ```
@@ -250,6 +257,7 @@ $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_be
 -o output_prefix_happy_GRCh37 \
 -r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
 
+
 ###
 $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
 /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.indels.vcf.gz \
@@ -266,7 +274,32 @@ $$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_b
 $$ $hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
       -o output-prefix_37 --force-interactive \
       -r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
+      
+$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
+/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
+-f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
+-o output_prefix_hap_py_hg37 \
+-r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
+--threads 18
 ```
+
+
+
+
+``
+$ mkdir -p evaluation_files/difficult_regions/  evaluation_files/difficult_regions/homopolymers analysis
+
+# Create SDF (sequence data file) for reference genome required for RTG vcfeval 
+rtg RTG_MEM=4G format -f fasta /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta \
+-o evaluation_files/GRCh38.sdf
+header="#score true_positives_baseline false_positives true_positives_call false_negatives precision sensitivity f_measure"
+
+
+
+
+
+
+
 5.2)  Structural variantion using truvari
 Installation: https://github.com/spiralgenetics/truvari
 Using cite: https://github.com/PacificBiosciences/sv-benchmark
@@ -289,3 +322,6 @@ $ truvari bench -f /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38
  --giabreport -r 1000 -p 0.01 --multimatch -c /home_bif2/piyanut.ra/pj_622/data/pbmm2/HG37.pbsv.vcf.gz
 ```
 Read more: https://github.com/spiralgenetics/truvari/wiki/bench
+
+<img width="806" alt="image" src="https://user-images.githubusercontent.com/77672038/143612221-615d59fc-f390-42cc-80fc-2076e3eef78c.png">
+
