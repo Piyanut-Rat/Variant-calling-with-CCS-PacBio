@@ -172,7 +172,7 @@ python NanoCaller/scripts/NanoCaller_WGS.py \
 -cpu 16
 ```
 ```
-## GRCh37
+## GRCh37  #! should use screen; cpu 18 used time elappsed about 12 hr.
 $ python NanoCaller/scripts/NanoCaller_WGS.py \
 -bam /home_bif2/piyanut.ra/pj_622/data/pbmm2/ccs_align_sorted_GRCh37.bam -ref /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
 -prefix HG002_HG37 \
@@ -235,7 +235,7 @@ $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_be
 ```
 ## GRCh37
 $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
-/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \ ##
+/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
 -f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
 -o output_prefix_hap_py_HG37 \
 -r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
