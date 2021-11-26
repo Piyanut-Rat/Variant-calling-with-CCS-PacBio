@@ -137,6 +137,11 @@ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Hom
 $ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
   ccs_map.fofn ccs_align_sorted_GRCh37.bam --preset CCS --rg '@RG\tID:myid\tSM:HG37' --num-threads 18 --sort
 ```
+* This is used for GRCh37 not flit ##
+```
+$ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
+  ccs_map_notflit.fofn  ccs_notflit_align_sorted_GRCh37.bam --preset CCS --rg '@RG\tID:myid\tSM:HG37' --num-threads 18 --sort
+```
 
 #### 4) Variation calling
 4.1)  Small variantion using NanoCaller
@@ -231,14 +236,36 @@ $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_be
 -f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed \
 -o output_prefix_hap_py_HG38 \
 -r /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta
+
+$$ $hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf \
+/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_HG38/HG002.final.vcf.gz  \
+      -o output-prefix_38 --force-interactive \
+      -r /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta
 ```
 ```
 ## GRCh37
 $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
 /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
 -f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
--o output_prefix_hap_py_HG37 \
+-o output_prefix_happy_GRCh37 \
 -r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
+
+###
+$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
+/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.indels.vcf.gz \
+-f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
+-o output_prefix_hap_py_GRCh37_indels \
+-r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
+
+$$ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf \
+/home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
+-f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark_noinconsistent.bed \
+-o output_prefix_hap_py_GRCh_37 \
+-r /home_bif2/piyanut.ra/pj_622/data/ref/human_hs37d5.fasta
+
+$$ $hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_benchmark.vcf /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_hg_37/HG002_HG37.final.vcf.gz \
+      -o output-prefix_37 --force-interactive \
+      -r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
 ```
 5.2)  Structural variantion using truvari
 Installation: https://github.com/spiralgenetics/truvari
