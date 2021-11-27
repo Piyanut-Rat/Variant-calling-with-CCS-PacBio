@@ -1,6 +1,6 @@
 # Variant-calling-with-CCS-PacBio
 
-<img width="780" alt="image" src="https://user-images.githubusercontent.com/77672038/143611722-a3d9711b-0079-41b8-9f56-61ee61b93ea5.png">
+<img width="700" alt="image" src="https://user-images.githubusercontent.com/77672038/143665570-fe749d0e-c248-4fe7-89be-b0da6234dd45.png">
 
 ----
 ### OUTLINE
