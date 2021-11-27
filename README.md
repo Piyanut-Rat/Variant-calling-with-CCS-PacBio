@@ -254,6 +254,17 @@ $ pbsv call /home_bif2/piyanut.ra/pj_622/data/ref/human_hs37d5.fasta HG37.svsig.
 $ bgzip HG37.pbsv.vcf
 $ tabix HG37.pbsv.vcf.gz
 ```
+```
+## This is used for HG38 not fliter  
+
+$ pbsv discover ccs_notflit_align_sorted_GRCh38.bam GRCh38_no_flit.svsig.gz --tandem-repeats /home_bif2/piyanut.ra/pj_622/data/refseq/human_GRCh38_no_alt_analysis_set.trf.bed
+
+$ pbsv call /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta \
+  GRCh38_no_flit.svsig.gz GRCh38_no_flit.pbsv.vcf --ccs -t INS,DEL
+  
+$ bgzip GRCh38_no_flit.pbsv.vcf
+$ tabix GRCh38_no_flit.pbsv.vcf.gz
+```
 #### 5) Accuratecy variant
 5.1)  Small variantion using hap.py \
 Using cite: https://github.com/illumina/hap.py
