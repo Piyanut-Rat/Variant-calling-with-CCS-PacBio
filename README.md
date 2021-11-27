@@ -143,12 +143,17 @@ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Hom
 $$ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta \
   ccs_map.fofn ccs_filt_align_sorted_GRCh38.bam --preset CCS --rg '@RG\tID:myid\tSM:HG38' --num-threads 18 --sort
 ```  
+* This is used for GRCh38 not fliter 
+```
+$ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta \
+  ccs_map_notflit.fofn ccs_notflit_align_sorted_GRCh38.bam --preset CCS --rg '@RG\tID:myid\tSM:HG38' --num-threads 18 --sort  
+``` 
 * This is used for GRCh37
 ```
 $ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
   ccs_map.fofn ccs_align_sorted_GRCh37.bam --preset CCS --rg '@RG\tID:myid\tSM:HG37' --num-threads 18 --sort
 ```
-* This is used for GRCh37 not flit 
+* This is used for GRCh37 not fliter 
 ```
 $ pbmm2 align /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa \
   ccs_map_notflit.fofn  ccs_notflit_align_sorted_GRCh37.bam --preset CCS --rg '@RG\tID:myid\tSM:HG37' --num-threads 18 --sort
