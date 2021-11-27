@@ -100,6 +100,14 @@ $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/
 $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_HG002_medical_genes_SV_benchmark_v0.01/HG002_GRCh38_difficult_medical_gene_SV_benchmark_v0.01.vcf.gz
 $ wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_HG002_medical_genes_SV_benchmark_v0.01/HG002_GRCh38_difficult_medical_gene_SV_benchmark_v0.01.vcf.gz.tbi
 ```
+Structural variants: Currently available for HG002 on GRCh37 (All)
+cite: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_SVs_Integration_v0.6/
+
+```
+wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_SVs_Integration_v0.6/HG002_SVs_Tier1_v0.6.bed
+wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_SVs_Integration_v0.6/HG002_SVs_Tier1_v0.6.vcf.gz
+wget https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/data/AshkenazimTrio/analysis/NIST_SVs_Integration_v0.6/HG002_SVs_Tier1_v0.6.vcf.gz.tbi
+```
 
 1.4) Tandem repeat annotations 
 The pbsv discover stage was run separately per chromosome with tandem repeat annotations.
@@ -294,6 +302,14 @@ $ truvari bench -f /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38
  -b /home_bif2/piyanut.ra/pj_622/data/giab/HG002_GRCh37_difficult_medical_gene_SV_benchmark_v0.01.vcf.gz \
  --includebed /home_bif2/piyanut.ra/pj_622/data/giab/HG002_GRCh37_difficult_medical_gene_SV_benchmark_v0.01.bed \
  -o /home_bif2/piyanut.ra/pj_622/data/refseq/sv_bench_pbsv37nanoFlit --passonly \
+ --giabreport -r 1000 -p 0.01 --multimatch -c /home_bif2/piyanut.ra/pj_622/data/pbmm2/HG37.pbsv.vcf.gz
+```
+ ```
+ # GRCh37 (All)
+ $ truvari bench -f /home_bif2/piyanut.ra/pj_622/data/ref/human_hs37d5.fasta \
+ -b /home_bif2/piyanut.ra/pj_622/data/giab/HG002_SVs_Tier1_v0.6.vcf.gz \
+ --includebed /home_bif2/piyanut.ra/pj_622/data/giab/HG002_SVs_Tier1_v0.6.bed \
+ -o /home_bif2/piyanut.ra/pj_622/data/refseq/sv_bench_pbsv37_not_nanoFlit --passonly \
  --giabreport -r 1000 -p 0.01 --multimatch -c /home_bif2/piyanut.ra/pj_622/data/pbmm2/HG37.pbsv.vcf.gz
 ```
 Read more: https://github.com/spiralgenetics/truvari/wiki/bench
