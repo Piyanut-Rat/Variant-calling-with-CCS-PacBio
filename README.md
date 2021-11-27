@@ -312,6 +312,7 @@ $ truvari bench -f /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38
  -o /home_bif2/piyanut.ra/pj_622/data/refseq/sv_bench_pbsv37_not_nanoFlit --passonly \
  --giabreport -r 1000 -p 0.01 --multimatch -c /home_bif2/piyanut.ra/pj_622/data/pbmm2/HG37.pbsv.vcf.gz
 ```
+The result:[summary_pbsv_truvari_GRCh37(bench_all_2018)](https://github.com/Piyanut-Rat/Variant-calling-with-CCS-PacBio/blob/main/summary_pbsv_truvari_GRCh37(bench_all_2018).txt)
 Read more: https://github.com/spiralgenetics/truvari/wiki/bench
 
 <img width="806" alt="image" src="https://user-images.githubusercontent.com/77672038/143612221-615d59fc-f390-42cc-80fc-2076e3eef78c.png">
