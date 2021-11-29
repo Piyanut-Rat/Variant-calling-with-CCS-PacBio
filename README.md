@@ -298,6 +298,7 @@ $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh37_1_22_v4.2.1_be
       -o output-prefix_37 --force-interactive \
       -r /home_bif2/piyanut.ra/pj_622/data/ref/GRCh37.fa
 ```
+[The result](https://github.com/Piyanut-Rat/Variant-calling-with-CCS-PacBio/blob/main/output-prefix_GRCh38_notflit.summary.csv)
 
 5.2)  Structural variantion using truvari
 Installation: https://github.com/spiralgenetics/truvari
