@@ -291,7 +291,7 @@ $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_be
 $ hap.py /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf \
 /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_HG38_notflit_new_V/HG002.final.vcf.gz \
 -f /home_bif2/piyanut.ra/pj_622/data/benchmark/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed \
--o output-prefix_38_new_fliter --force-interactive \
+-o output-prefix_38_non_fliter --force-interactive \
 -r /home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta
 ```
 ```
