@@ -124,6 +124,7 @@ $ wget https://github.com/PacificBiosciences/pbsv/blob/master/annotations/human_
 #### 2) Filter data (CCS)
 ###### nanoplot
 https://bioconda.github.io/recipes/nanoplot/README.html
+[Used](https://github.com/wdecoster/NanoPlot)
 ```
 $ conda install nanoplot
 $ conda update nanoplot
@@ -133,6 +134,7 @@ $ conda install seaborn==0.10.1
 $ NanoPlot -t 16 --fastq *.fastq.gz --maxlength 40000 --plots {dot,kde} -o summary-plots-dotkde
 ```
 ###### NanoFilt
+[Used](https://github.com/wdecoster/nanofilt)
 ```
 $ for i in /home_bif2/monwipha.milin/pj_622/data/outputfull/*.fastq.gz; do \
 base=$i; \
@@ -142,6 +144,7 @@ done
 ```
 #### 3) Mapping
 ## pbmm2
+[Used](https://github.com/PacificBiosciences/pbmm2)
 
 * This is used for GRCh38
 ```
@@ -232,6 +235,7 @@ $ python NanoCaller/scripts/NanoCaller_WGS.py \
 4.2) Structural variantion using pbsv
 
 installation: https://anaconda.org/bioconda/pbsv
+[Used](https://github.com/pacificbiosciences/pbsv/)
 ```
 $ conda install -c bioconda pbsv 
 ```
