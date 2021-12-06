@@ -66,6 +66,7 @@ $ wget https://storage.googleapis.com/genomics-public-data/resources/broad/hg38/
 ```
 $ samtools faidx Homo_sapiens_assembly38.fasta
 ```
+
 1.3) Download Benchmark \
 1.3.1) Benchmark for small variant
 cite: https://ftp-trace.ncbi.nlm.nih.gov/giab/ftp/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/
