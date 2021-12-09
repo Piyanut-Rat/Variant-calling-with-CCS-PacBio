@@ -346,49 +346,6 @@ Read more: https://github.com/spiralgenetics/truvari/wiki/bench
 
 
 
-# Annotation
-
-```
-$ mkdir vcf37paper
-$ cd vcf37paper
-$ wget https://downloads.pacbcloud.com/public/publications/2019-HG002-CCS/sv/HG002_hs37d5_pacbio-integrated.vcf.gz
-$ wget https://downloads.pacbcloud.com/public/publications/2019-HG002-CCS/sv/HG002_hs37d5_pacbio-integrated.vcf.gz.tbi
-```
-```
-bcftools isec -n +2 /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_HG38_notflit_new_V/output-prefix_38_new_fliter.vcf.gz HG002_hs37d5_DeepVariant-CCS.vcf.gz | bgzip -c > isec_vcf37_38_out.vcf.gz
-```
-
-```
-Output file comparing the sites in two vcf files
-         vcftools --gzvcf input_file1.vcf.gz --gzdiff input_file2.vcf.gz --diff-site --out in1_v_in2
-         
-vcftools --gzvcf /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_HG38_notflit_new_V/output-prefix_38_new_fliter.vcf.gz --gzdiff HG002_hs37d5_DeepVariant-CCS.vcf.gz --diff-site --out isec_vcf37_38_out.vcf.gz
-```
-```
-bcftools isec --complement /home_bif2/piyanut.ra/pj_622/NanoCaller_ONT_Case_Study/Nanocalls_HG38_notflit_new_V/output-prefix_38_new_fliter.vcf.gz HG002_hs37d5_DeepVariant-CCS.vcf.gz | bgzip -c > isec_vcf37_38_out.vcf.gz
-```
-https://github.com/broadinstitute/picard
-```
-java -jar picard.jar LiftoverVcf \
-I=HG002_hs37d5_DeepVariant-CCS.vcf \
-O=lifted_over.vcf \
-CHAIN=hg19ToHg38.over.chain.gz \
-REJECT=rejected_variants.vcf \
-R=/home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta
-```
-https://anaconda.org/bioconda/picard
-```
-$ picard LiftoverVcf \
-I=HG002_hs37d5_DeepVariant-CCS.vcf \
-O=lifted_over.vcf \
-CHAIN=hg19ToHg38.over.chain.gz \
-REJECT=rejected_variants.vcf \
-R=/home_bif2/piyanut.ra/pj_622/data/refseq/resources-broad-hg38-v0-Homo_sapiens_assembly38.fasta
-```
-
-
-
-
 ### References
 Wenger, A.M., Peluso, P., Rowell, W.J. et al. Accurate circular consensus long-read sequencing improves variant detection and assembly of a human genome. *Nat Biotechnol* **37**, 1155–1162 (2019). https://doi.org/10.1038/s41587-019-0217-9
 \
