@@ -344,8 +344,15 @@ Read more: https://github.com/spiralgenetics/truvari/wiki/bench
 
 <img width="806" alt="image" src="https://user-images.githubusercontent.com/77672038/143612221-615d59fc-f390-42cc-80fc-2076e3eef78c.png">
 
+**Note:** Annotation \
+The VCF file is converted to Ensembl Variant Effect Predictor (VEP) using [Ensembl release 105 - Dec 2021.](https://asia.ensembl.org/index.html) 
+ 
+[The VEP Impact column](https://www.biostars.org/p/468502/) showed "High impact variant consequence" that mean the variant have high disruptive impact in the protein then may be causing protein truncation or loss of function. However, impact column has other type of impact. As a result, we should filter the VEP file.
 
-
+```
+$ cat file.vep.txt | grep "IMPACT=HIGH" > filter_vep.txt
+```
+----
 ### References
 Wenger, A.M., Peluso, P., Rowell, W.J. et al. Accurate circular consensus long-read sequencing improves variant detection and assembly of a human genome. *Nat Biotechnol* **37**, 1155–1162 (2019). https://doi.org/10.1038/s41587-019-0217-9
 \
